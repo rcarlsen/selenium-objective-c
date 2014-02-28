@@ -9,6 +9,7 @@
 #define BROWSER_NAME @"browserName"
 #define VERSION @"version"
 #define PLATFORM @"platform"
+#define DEVICE @"device"
 #define JAVASCRIPT_ENABLED @"javascriptEnabled"
 #define TAKES_SCREENSHOT @"takesScreenshot"
 #define HANDLES_ALERTS @"handlesAlerts"
@@ -45,9 +46,10 @@ NSMutableDictionary* _dict;
     self = [super init];
     if (self) {
         _dict = [NSMutableDictionary new];
-        [self setBrowserName:[dict objectForKey:BROWSER_NAME]];
+		[self setBrowserName:[dict objectForKey:BROWSER_NAME]];
 		[self setVersion:[dict objectForKey:VERSION]];
 		[self setPlatform:[dict objectForKey:PLATFORM]];
+		[self setDevice:[dict objectForKey:DEVICE]];
 		[self setJavascriptEnabled:[[dict objectForKey:JAVASCRIPT_ENABLED] boolValue]];
 		[self setTakesScreenShot:[[dict objectForKey:TAKES_SCREENSHOT] boolValue]];
 		[self setHandlesAlerts:[[dict objectForKey:HANDLES_ALERTS] boolValue]];
@@ -72,6 +74,9 @@ NSMutableDictionary* _dict;
 
 -(NSString*) platform { return [_dict objectForKey:PLATFORM];}
 -(void) setPlatform:(NSString *)platform { [_dict setValue:platform forKey:PLATFORM]; }
+
+-(NSString*) device { return [_dict objectForKey:DEVICE];}
+-(void) setDevice:(NSString *)device { [_dict setValue:device forKey:DEVICE]; }
 
 -(BOOL) javascriptEnabled { return [[_dict objectForKey:JAVASCRIPT_ENABLED] boolValue]; }
 -(void) setJavascriptEnabled:(BOOL)javascriptEnabled { [_dict setValue:[NSNumber numberWithBool:javascriptEnabled] forKey:JAVASCRIPT_ENABLED]; }

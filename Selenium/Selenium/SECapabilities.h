@@ -13,6 +13,7 @@
 @property NSString* browserName;
 @property NSString* version;
 @property NSString* platform;
+@property NSString* device;
 @property BOOL javascriptEnabled;
 @property BOOL takesScreenShot;
 @property BOOL handlesAlerts;
